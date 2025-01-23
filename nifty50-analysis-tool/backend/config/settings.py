@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'backend.apps.alerts',
     'backend.apps.analysis',
     'backend.apps.nifty_data',
+    'djongo',
 ]
 
 MIDDLEWARE = [
@@ -70,12 +71,12 @@ WSGI_APPLICATION = 'backend.config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'nifty50'),
-        'USER': os.getenv('POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'password'),
-        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
-        'PORT': os.getenv('POSTGRES_PORT', '5432'),
+        'ENGINE': 'djongo',
+        'NAME': 'nifty50',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://niftyuser:sqszpyvmUjtYvVMW3WiTHgVHSfKcwejc@dpg-cu8mb2ij1k6c73ekp3qg-a.singapore-postgres.render.com/nifty50?ssl=true&ssl_cert_reqs=CERT_NONE',
+        }
     }
 }
 

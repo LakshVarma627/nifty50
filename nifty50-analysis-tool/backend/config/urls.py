@@ -11,4 +11,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/nifty_data/', include(nifty_data_router.urls)),
+    path('api/alerts/', include('backend.apps.alerts.urls')),
+    path('api/analysis/', include('backend.apps.analysis.urls')),
 ]
